@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "571517391152",
+    "firebase_url": "https://easy-loan-mantra.firebaseio.com",
+    "project_id": "easy-loan-mantra",
+    "storage_bucket": "easy-loan-mantra.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571517391152:android:7e84f0dae5cc3e304f38f5",
+        "android_client_info": {
+          "package_name": "www.atmanirbharbharat.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571517391152-a5hncu5rs63lsoskcr5dg1r63odd15h1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpkrPHK2FmeEq3ZuL_PW1Xvj7_4DFjH1E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571517391152-a5hncu5rs63lsoskcr5dg1r63odd15h1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

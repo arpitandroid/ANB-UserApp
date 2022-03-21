@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF6200EE</color>
+    <color name="colorPrimaryDark">#FF3700B3</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="blueThemeBg">#09b1ec</color>
+    <color name="orangeThemeBg">#F44E39</color>
+    <color name="orangeThemeBgDisabled">#77F76654</color>
+    <color name="green">#B1EAB3</color>
+    <color name="red">#F44336</color>
+    <color name="grey">#3C3939</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+
+</resources>

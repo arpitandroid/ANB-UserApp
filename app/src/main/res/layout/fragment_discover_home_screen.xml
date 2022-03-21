@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".homeScreen.fragments.DiscoverHomeScreenFragment"
+    android:fillViewport="true"
+    android:background="@drawable/backgroundstyle">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swiperefresh">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/loan_payments"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            android:id="@+id/loanPaidRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/upcommingPaymentcard" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/noDataFoundImageView"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:src="@drawable/no_data_found"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+          />
+
+
+<!--        Next paymnet card-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:id="@+id/upcommingPaymentcard"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+            <ir.beigirad.zigzagview.ZigzagView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:zigzagBackgroundColor="@color/green"
+                app:zigzagElevation="8dp"
+                app:zigzagHeight="10dp"
+                app:zigzagPaddingContent="16dp"
+                app:zigzagShadowAlpha="0.9"
+                app:zigzagSides="top|bottom"
+                tools:layout_editor_absoluteX="0dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/rupeesImageView"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ifsc_code" />
+
+                    <TextView
+                        android:id="@+id/loanAmountText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="10,000 INR"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/rupeesImageView"
+                        app:layout_constraintStart_toEndOf="@+id/rupeesImageView"
+                        app:layout_constraintTop_toTopOf="@+id/rupeesImageView" />
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:id="@+id/paymentMediumTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Loan ID"
+                        android:visibility="gone"
+                        android:textColor="@color/black"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rupeesImageView" />
+
+                    <TextView
+                        android:id="@+id/paymentMediumTextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Payment Last Date"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/paymentMediumTextView" />
+
+                    <TextView
+                        android:id="@+id/paymentMediumTextView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/payment_status"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/paymentMediumTextView2" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/paidByTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="TextView"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="@+id/paymentMediumTextView"
+                        app:layout_constraintStart_toEndOf="@+id/paymentMediumTextView"
+                        app:layout_constraintTop_toTopOf="@+id/paymentMediumTextView" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/paymentDateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="TextView"
+                        app:layout_constraintBottom_toBottomOf="@+id/paymentMediumTextView2"
+                        app:layout_constraintStart_toEndOf="@+id/paymentMediumTextView2"
+                        app:layout_constraintTop_toTopOf="@+id/paymentMediumTextView2" />
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:id="@+id/paymentStatusTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="20dp"
+                        android:text="Pending"
+                        app:layout_constraintBottom_toBottomOf="@+id/paymentMediumTextView3"
+                        app:layout_constraintStart_toEndOf="@+id/paymentMediumTextView3"
+                        app:layout_constraintTop_toTopOf="@+id/paymentMediumTextView3" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </ir.beigirad.zigzagview.ZigzagView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</ScrollView>

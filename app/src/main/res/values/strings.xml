@@ -1,0 +1,224 @@
+<resources>
+    <string name="app_name">Atma nirbhar Bharat</string>
+    <string name="start_registration">We are about to start your registration &#8230;</string>
+    <string name="welcome_text">Welcome to Aatma Nirbhar Bharat</string>
+    <string name="select_preffered_lang">Welcome to Easy Loan Mantra can you please specify if you are a new user or have been registered before.</string>
+    <string name="language">Language</string>
+    <string name="new_user">I am a new user</string>
+    <string name="registered_before">I have been registered before.</string>
+    <string name="next">Next</string>
+    <string name="enter_phone_and_email">Please enter your mobile phone</string>
+    <string name="we_will_use_mobile_email">We\'ll use your mobile phone to send you the activation code for this application</string>
+    <string name="phone_number">Phone number</string>
+    <string name="email_address">Email Address</string>
+    <string name="i_accept">I accept </string>
+    <string name="terms_and_conditions">Terms &amp; conditions</string>
+    <string name="confirmation_code_sent">Confirmation code has been sent to your mobile</string>
+    <string name="enter_code_sent">Please enter the code below i.e sent to the mobile number</string>
+    <string name="resend_code_again">Resend Code Again</string>
+    <string name="prepare_your_document">Prepare your ID document for upload</string>
+    <string name="we_need_to_take_picture">We need you to take a picture of front and back your Adhaar Card document. Please be ready with the document to scan and tap to begin.</string>
+    <string name="upload_document">Upload Document</string>
+    <string name="prepare_your_front_side_document">Prepare your front side of Adhaar document for scan</string>
+    <string name="we_need_to_take_picture_of_front">We need you to take a picture of front side of your Card document. Please be ready with the document to scan and tap to begin.</string>
+    <string name="upload_adhaar_front">Upload Adhaar Front</string>
+    <string name="upload_adhaar_back">Upload Adhaar Back</string>
+    <string name="upload_selfie">Upload pancard</string>
+    <string name="open_camera">Open Camera</string>
+    <string name="upload_pay_slip">Upload Passbook / Checkbook</string>
+    <string name="prepare_your_back_side_document">Prepare the back side of Adhaar document for scan</string>
+    <string name="we_need_to_take_picture_of_back">We need you to take a picture of back side of your Card document. Please be ready with the document to scan and tap to begin.</string>
+    <string name="prepare_yourself_to_take_the_selfie">Prepare yourself to take a selfie with the document</string>
+    <string name="we_need_your_sefie_with_document">We need you to take a selfie picture of you holding the adhaar in your one hand. Please be ready with the document in your hand to scan and tap to begin.</string>
+    <string name="confirm_your_data">Confirm your data</string>
+    <string name="please_verify_and_confirm_once_again">Please verify and confirm once again your data that will be used for account creation.</string>
+    <string name="scan_it_again">Scan it again</string>
+    <string name="enter_basic_details">Enter Basic Details</string>
+    <string name="name">Name</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="street_address">Street address</string>
+    <string name="city">City</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="adhaar_no">Adhaar number</string>
+    <string name="relation">Relation</string>
+    <string name="emergency_contacts_details">Emergency Contacts Details</string>
+    <string name="nominee_details">Nominee Details</string>
+    <string name="account_created">Your account has been created. </string>
+    <string name="splash_image">Splash Image</string>
+    <string name="home">Home</string>
+    <string name="navjyot_singh">Navjyot Singh</string>
+    <string name="phone_no_example">+9188********</string>
+    <string name="current_loan">Current Loan</string>
+    <string name="verified_profile">Verified Profile</string>
+    <string name="help">Help</string>
+    <string name="setting">Settings</string>
+    <string name="feedback">Feedback</string>
+    <string name="loans">Loans</string>
+    <string name="payment">Payment</string>
+    <string name="profile">Profile</string>
+    <string name="loan_confirmation">Loan Confirmation</string>
+    <string name="selected_loan_amount">Your selected loan amount</string>
+    <string name="limit_amount">Limit Amount</string>
+    <string name="loan_period">Loan period</string>
+    <string name="loan_details">Loan Details</string>
+    <string name="loan_amount">Loan Sanctioned Amount:</string>
+    <string name="loan_closure_amount">Loan Closure Amount:</string>
+    <string name="loan_amount_">Loan Amount</string>
+    <string name="disbursal_amount">Disbursal Amount:</string>
+    <string name="loan_penalty_status">Loan Penalty Status</string>
+    <string name="loan_penalty_days">Loan Penalty Days</string>
+    <string name="loan_penalty_amount">Loan Penalty Amount</string>
+    <string name="processing_fee">Processing fee:</string>
+    <string name="current_roi">Current ROI(%):</string>
+    <string name="confirm_loan">Confirm Loan</string>
+    <string name="bank_details">Bank Details</string>
+    <string name="applying_for_loan">Applying for loan</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="account_number">Account Number</string>
+    <string name="confirm_account_number">Confirm Account Number</string>
+    <string name="account_holder_name">Account Holder Name</string>
+    <string name="ifsc_code">IFSC code</string>
+    <string name="comfirm_bank_details">Confirm Bank Details</string>
+    <string name="comfirm_company_details">Confirm Company Details</string>
+    <string name="company_details">Company Details</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_phone">Company Phone</string>
+    <string name="company_industry">Company Industry</string>
+    <string name="years_of_working">Years of Working</string>
+    <string name="occupation">Occupation</string>
+    <string name="position">Position</string>
+    <string name="monthly_salary">Monthly Salary</string>
+    <string name="company_address">Company Address</string>
+    <string name="location">Location</string>
+    <string name="private_details">Private Details</string>
+    <string name="adhaar_card_details">Adhaar Card Details</string>
+    <string name="basic_details_approval">Basic Details Approval</string>
+    <string name="nominee_verification">Nominee Verification</string>
+    <string name="document_verificaion">Document Verification</string>
+    <string name="selfie_verificaion">Selfie Verification</string>
+    <string name="loan_available">Loan options available</string>
+    <string name="we_gave_you_choice">Here you go, we gave you a choice.</string>
+    <string name="edit_the_data_you_enterd">You have the access to edit the data you entered previously at the time of registration.</string>
+    <string name="notifications">Notification Message</string>
+    <string name="no_new_notifications">No new notification message for you</string>
+    <string name="verify_your_phone_number">Verify your phone number</string>
+
+
+    <string name="prepare_your_payslip">Prepare your front side of Passbook / checkbook for scan</string>
+    <string name="we_need_to_take_picture_of_payslip">We need you to take a picture of front side of your  Passbook / checkbook document. Please be ready with the document to scan and tap to begin.</string>
+
+
+    <string name="prepare_your_passbook">Prepare your paasbook or blank check image of your Bank accout for scan</string>
+    <string name="we_need_to_take_picture_of_passbook">We need you to take a picture of Passbook or a blank check image of your bank account. Please be ready with the document to scan and tap to begin.</string>
+
+    <string name="edit">Edit</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="no_loan_present">No Loan Present</string>
+    <string name="pending">Pending</string>
+
+
+    <string name="logout">Logout</string>
+    <string name="contact">Contact</string>
+
+    <string name="oops_you_cannot_edit_now">OOps! you cannot edit the selected part now</string>
+    <string name="details_have_been_approved">All the details previously provided by you has been already approved. If you want further help contact out team from the contact button in settings</string>
+
+
+    <string name="do_you_want_logout">Do you want to logout from the current account?</string>
+    <string name="logging_out_will">Logging out from the account means you need to login again for the next time you want to use the application</string>
+
+    <string name="ok">ok</string>
+
+    <string name="approval_process_is_in_progress">The approval process is still in process</string>
+    <string name="this_loan_cannot_be_accessed_by_you">Sorry! This loan cannot be accessed by you</string>
+    <string name="we_are_absolutely_sorry_for_making_you_wait">We are absolutely sorry to make you wait for the loan approval process. We will notify you as soon we complete your process</string>
+    <string name="sorry_not_Eligible">Sorry you are currently not eligible for taking the loan. Please select the eligible loan.</string>
+
+
+    <string name="your_profile_is_incomplete">Your Profile is incomplete</string>
+    <string name="please_complete_your_profile">Your Profile is incomplete, please complete it so that we can verify you and start with the loan approval process</string>
+    <string name="profile_verification_in_process">Your Profile verification is in process</string>
+    <string name="profile_is_approved">Your Profile is approved</string>
+    <string name="elegibile_now">You are now eligible for taking your loan</string>
+    <string name="please_wait_till_we_complete_verification">We are currently reviewing your profile. We will notify as soon as your process is complete.Till then Keep checking your profile!</string>
+
+    <string name="confirm_the_loan">Confirm the loan application</string>
+    <string name="the_loan_will_be_under">After you confirm the loan will be under approval process and as soon as it gets approved we will get you notified</string>
+
+    <string name="loan_dailog_confirmation">Loan Application Confirmation</string>
+    <string name="loan_under_processing">Loan applied successfully It will be under approval process and as soon as it gets approved we will get you notified</string>
+
+
+    <string name="repay_in">Repay in</string>
+    <string name="paid_by">Received by</string>
+    <string name="payment_status">Payment Status</string>
+
+    <string name="loan_status">Loan Status</string>
+    <string name="due_date">Due Date</string>
+    <string name="extend_loan">Extend Loan</string>
+    <string name="pay_loan">Pay Loan</string>
+    <string name="penalty_amount">Penalty Amount</string>
+    <string name="penalty_days">Penalty Days</string>
+    <string name="upi_id">Upi Id</string>
+    <string name="note">Note</string>
+    <string name="paid">Paid</string>
+    <string name="pay_the_loan">Pay the loan using Bank Transfer, UPI transfer or Paytm on the details given above and note the transition Id for the loan confirmation.</string>
+
+    <string name="loan_payments">Loan Payments</string>
+
+
+    <string name="payment_details">Payment Details</string>
+    <string name="payment_type">Payment Type</string>
+    <string name="transition_id">Transition Id</string>
+    <string name="payments_date">Payment Date</string>
+
+
+    <string name="do_you_want_to_extend">Do you want to Add TopUp to the loan?</string>
+    <string name="extra_charges_and_extension_days_are_as_follow">Extension days and extension charges are as follows</string>
+    <string name="extension_charges">Extension charges:</string>
+    <string name="extension_days">Extension days:</string>
+
+    <string name="document_rejected">Document Rejected</string>
+    <string name="payslip_rejected">Payslip Rejected</string>
+    <string name="selfie_rejected">Selfie Rejected</string>
+    <string name="basic_detail_rejected">Basic Details Rejected</string>
+    <string name="message">Message</string>
+    <string name="no_message">No Message</string>
+    <string name="amount_disbursed">Amount Disbursed</string>
+    <string name="loan_closed">Loan Closed</string>
+    <string name="aatma_nirbhar_bharat_urban_jan_credit_line_foundation">Aatma Nirbhar Bharat Urban Jan Credit Line Foundation</string>
+    <string name="todo">TODO</string>
+    <string name="apply">Apply</string>
+
+
+    <string-array name="language_array">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Punjabi</item>
+        <item>English USA</item>
+        <item>English CANADA</item>
+    </string-array>
+    <string name="title_activity_custom_loan">Activity_CustomLoan</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="get_roi">Get Loan Details</string>
+    <string name="loan_duration_monthly">loan duration (days)</string>
+    <string name="lic_amount_deduction">LIC Amount Deduction *</string>
+    <string name="myloans">Payment History</string>
+
+    <string-array name="Payment_Mode">
+        <item>monthly</item>
+        <item>weekly</item>
+        <item>every-15-days</item>
+        <item>daily</item>
+    </string-array>
+</resources>
