@@ -62,6 +62,7 @@
                 app:layout_constraintVertical_bias="1.0">
 
                 <TextView
+                    android:id="@+id/tv1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -73,7 +74,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-
+                    android:id="@+id/tv2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"

@@ -365,6 +365,24 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_loanExtention" />
+
+                <TextView
+                    android:id="@+id/btn_loanExtention"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/button_orange_clicked"
+                    android:drawablePadding="10dp"
+                    android:padding="15dp"
+                    android:visibility="gone"
+                    android:text="Loan Extension"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/messageTextView" />
 
                 <TextView

@@ -15,6 +15,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
+import www.atmanirbharbharat.com.LoanExtention.Model_LoanExtList;
 import www.atmanirbharbharat.com.models.AdhaarCardBackModel;
 import www.atmanirbharbharat.com.models.AdhaarCardFrontModel;
 import www.atmanirbharbharat.com.models.AdhaarCardSelfieModel;
@@ -67,6 +68,15 @@ public interface ApiInterface {
     @POST("api/user/Details/adhar_card_front_upload")
     Call<AdhaarCardFrontModel> uploadAdhaarFrontImage(@Part("token") RequestBody token, @Part MultipartBody.Part adhar_card_front);
 
+
+    @Headers({
+            "x-api-key: R9OH5BHSKP8XELMQGMC6OBAZ",
+            "Authorization: Basic T2ZmZXItQWRtaW46b2ZmZXJfYWRtaW5fMTIzKjg5MA==",
+            "cache-control: no-cache"
+    })
+    @Multipart
+    @POST("api/user/Details/profile_image_upload")
+    Call<AdhaarCardFrontModel> uploadProfileImage(@Part("token") RequestBody token, @Part MultipartBody.Part profile_image_upload);
 
     @Headers({
             "x-api-key: R9OH5BHSKP8XELMQGMC6OBAZ",
@@ -163,9 +173,11 @@ public interface ApiInterface {
             "Authorization: Basic T2ZmZXItQWRtaW46b2ZmZXJfYWRtaW5fMTIzKjg5MA==",
             "cache-control: no-cache"
     })
-    @POST("api/user/Loan/extension")
+    @POST("api/user/Loan/apply_loan_extension")
     @FormUrlEncoded
-    Call<ApplyExtensionModel> applyLoanExtensionApi(@Field("token") String token, @Field("loan_id") String loan_id);
+    Call<ApplyExtensionModel> applyLoanExtensionApi(@Field("token") String token, @Field("current_loan_id") String current_loan_id,
+                                                    @Field("amount") String amount,@Field("loan_duration") String loan_duration,
+                                                    @Field("payment_mode") String payment_mode);
 
 
 
@@ -204,8 +216,17 @@ public interface ApiInterface {
             "Authorization: Basic T2ZmZXItQWRtaW46b2ZmZXJfYWRtaW5fMTIzKjg5MA==",
             "cache-control: no-cache"
     })
-    @GET("api/user/Loan/loan_payments")  // TO BE CALLED
+    @GET("api/user/Loan/loan_payments")
     Call<List_Loanpaidhistory> loanPaymentsGetApi(@Query("token") String token, @Query("loan_id") String loanid);
+
+
+    @Headers({
+            "x-api-key: R9OH5BHSKP8XELMQGMC6OBAZ",
+            "Authorization: Basic T2ZmZXItQWRtaW46b2ZmZXJfYWRtaW5fMTIzKjg5MA==",
+            "cache-control: no-cache"
+    })
+    @GET("api/user/Loan/loan_extensions")
+    Call<Model_LoanExtList> GetLoanExtentionList(@Query("token") String token, @Query("loan_id") String loanid);
 
     @Headers({
             "x-api-key: R9OH5BHSKP8XELMQGMC6OBAZ",

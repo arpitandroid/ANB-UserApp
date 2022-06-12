@@ -64,6 +64,15 @@
             android:name=".LoanActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".LoanExtention.Apply_LoanExtention"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity_UpdateProfile"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoanExtention.Activity_ListLoanExtention"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".homeScreen.activity.HomeScreenActivity"
             android:screenOrientation="portrait" />
         <activity

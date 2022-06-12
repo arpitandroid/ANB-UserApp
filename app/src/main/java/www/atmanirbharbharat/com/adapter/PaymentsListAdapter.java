@@ -44,7 +44,7 @@ public class PaymentsListAdapter extends RecyclerView.Adapter<PaymentsListAdapte
 
         holder.loanAmountText.setText(String.valueOf(loanPayments.getData().getLoanPaidData().get(position).getAmount_received()) + " -/  (For Loan ID - "+ loanPayments.getData().getLoanPaidData().get(position).getLoanAppliedId()+" )");
 
-        if(loanPayments.getData().getLoanPaidData().get(position).getAmount_received_by().equalsIgnoreCase("MANAGER")){
+        if(loanPayments.getData().getLoanPaidData().get(position).getAmount_received_by()!=null && loanPayments.getData().getLoanPaidData().get(position).getAmount_received_by().equalsIgnoreCase("MANAGER")){
             holder.paidByTextView.setText(loanPayments.getData().getLoanPaidData().get(position).getManager_name()+" ( Manager )");
         }else{
             holder.paidByTextView.setText("Management team");

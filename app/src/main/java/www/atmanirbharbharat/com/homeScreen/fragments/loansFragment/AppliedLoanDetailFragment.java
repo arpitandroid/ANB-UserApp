@@ -24,6 +24,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
@@ -32,12 +34,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import www.atmanirbharbharat.com.Interface.ApiInterface;
+import www.atmanirbharbharat.com.LoanExtention.Activity_ListLoanExtention;
+import www.atmanirbharbharat.com.LoanExtention.Apply_LoanExtention;
 import www.atmanirbharbharat.com.LoanPaymentDetailActivity;
 import www.atmanirbharbharat.com.R;
 import www.atmanirbharbharat.com.UserLoanDetailActivity;
 import www.atmanirbharbharat.com.WebViewActivity;
 import www.atmanirbharbharat.com.common.SharedPref;
-import www.atmanirbharbharat.com.models.ApplyExtensionModel;
 import www.atmanirbharbharat.com.models.CurrentLoanDetailsGetModel;
 import www.atmanirbharbharat.com.util.ApiClient;
 import www.atmanirbharbharat.com.util.NetworkInfo;
@@ -78,6 +81,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
     TextView disbursalAmounttxt;
     TextView emiamounttxt;
     TextView btn_paydetails;
+    TextView btn_loanExtention;
     private LinearLayout linearLayout;
 
 
@@ -168,10 +172,12 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         emiamounttxt = view.findViewById(R.id.emiamounttxt);
         linearLayout = view.findViewById(R.id.linearLayout);
         btn_paydetails = view.findViewById(R.id.btn_paydetails);
+        btn_loanExtention = view.findViewById(R.id.btn_loanExtention);
         payLoanButton.setOnClickListener(this);
         extendLoanButton.setOnClickListener(this);
         backButtonImage.setOnClickListener(this);
         btn_paydetails.setOnClickListener(this);
+        btn_loanExtention.setOnClickListener(this);
     }
 
 
@@ -187,7 +193,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
                 @Override
                 public void onResponse(Call<CurrentLoanDetailsGetModel> call, Response<CurrentLoanDetailsGetModel> response) {
                     if (response.body() != null && response.body().getStatus() == 200) {
-
+                        Log.i("arp","res: currentLoanDetail=> \n" + new Gson().toJson(response.body()));
 
                         progress_circular.setVisibility(View.GONE);
                         mainConstraintLayout.setVisibility(View.VISIBLE);
@@ -291,6 +297,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         if(approvedStatus.equals("RUNNING")){
             approvedStatusTextView.setText("Loan Running");
 //            linearLayout.setVisibility(View.VISIBLE);
+            btn_loanExtention.setVisibility(View.VISIBLE);
         }
 
         if(!approvedStatus.equalsIgnoreCase("pending")){
@@ -339,6 +346,9 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
 
         }if(view.getId() == R.id.btn_paydetails){
             startActivity(new Intent(getActivity(), LoanPaymentDetailActivity.class).putExtra("LoanAppliedId",loanId));
+
+        }if(view.getId() == R.id.btn_loanExtention){
+            startActivity(new Intent(getActivity(), Activity_ListLoanExtention.class).putExtra("LoanAppliedId",loanId));
         }
     }
 
@@ -379,7 +389,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         });
     }
 
-    private void extendLoanApiHit() {
+   /* private void extendLoanApiHit() {
         if (NetworkInfo.hasConnection(getActivity())) {
             //calling the API client
             ApiInterface apiService = ApiClient.getClient(ApiClient.BASE_URL).create(ApiInterface.class);
@@ -405,7 +415,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
                 }
             });
         }
-    }
+    }*/
 
     private void reload() {
         getFragmentManager().beginTransaction().detach(this).attach(this).commit();

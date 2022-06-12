@@ -39,6 +39,8 @@ import www.atmanirbharbharat.com.util.NetworkInfo;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import com.google.gson.Gson;
+
 public class DiscoverHomeScreenFragment extends Fragment {
 
     String token;
@@ -86,10 +88,11 @@ public class DiscoverHomeScreenFragment extends Fragment {
                 public void onResponse(Call<LoanPaymentsGetApiModel> call, Response<LoanPaymentsGetApiModel> response) {
 
                     LoanPaymentsGetApiModel res  =  response.body();
-
                     if (res != null) {
+                        Log.i("arp","res: paylist=> "+new Gson().toJson(res));
                         if (res.getStatus() == 200 && res.getData() != null) {
                             loanPayments = response.body();
+
                             if (loanPayments.getData().getLoanPaidData().isEmpty() && response.body().getData().getUpcommingPayment().isEmpty()){
                                 noDataFoundImageView.setVisibility(View.VISIBLE);
                             }

@@ -306,11 +306,12 @@ public class OTPVerifyFragment extends Fragment implements View.OnClickListener 
         if (NetworkInfo.hasConnection(requireActivity())) {
             //calling the API client
             ApiInterface apiService = ApiClient.getClient(ApiClient.BASE_URL).create(ApiInterface.class);
-
+            Log.i("arp","otpres= "+ new Gson().toJson(mParam));
             Call<OtpVerificationModel> call = apiService.otpVerificationApi(mParam);
             call.enqueue(new Callback<OtpVerificationModel>() {
                 @Override
                 public void onResponse(Call<OtpVerificationModel> call, Response<OtpVerificationModel> response) {
+                    Log.i("arp","otpres= "+ response.body());
                     if (response.body() != null && response.body().getStatus() == 200 && response.body().getData() != null) {
                         sharedPreferences = requireActivity().getSharedPreferences(SharedPref.SHARED_PREFS, MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();

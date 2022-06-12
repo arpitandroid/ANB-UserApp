@@ -10,6 +10,7 @@ public class SharedPref {
     public static final String ADHAR_FRONT_URL = "adhaarFrontUrl";
     public static final String ADHAR_BACK_URL = "adhaarBackUrl";
     public static final String PANCARD_URL = "pancardUrl";
+    public static final String PROFILEIMAGE_URL = "profileImg";
     public static final String NAME = "name";
     public static final String DEFAULT_FRAGMENT_NO_AFTER_OPENING = "fragmentNo";
 

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -172,10 +173,12 @@ public class PhoneNumberEnterFragment extends Fragment implements View.OnClickLi
             call.enqueue(new Callback<OtpLoginRegistratinModel>() {
                 @Override
                 public void onResponse(Call<OtpLoginRegistratinModel> call, Response<OtpLoginRegistratinModel> response) {
-                    if (response.body() != null && response.body().getStatus() == 200 && response.body().getData() != null) {
+
+                    if (response.body() != null && response.body().getStatus() == 200) {
+                        Log.d("arp","res send_otp=> " + response.body().getMessage());
                         sharedPreferences = getActivity().getSharedPreferences(SharedPref.SHARED_PREFS, MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString(SharedPref.MOBILE, response.body().getData().getMobileNumber());
+                        editor.putString(SharedPref.MOBILE, mobileNumber);
                         editor.apply();
 
                         ((RegisterSlideActivity) getActivity()).nextFragment(1);

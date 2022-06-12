@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +36,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import www.atmanirbharbharat.com.Activity_UpdateProfile;
 import www.atmanirbharbharat.com.EditDataActivity;
 import www.atmanirbharbharat.com.Interface.ApiInterface;
 import www.atmanirbharbharat.com.LoanActivity;
@@ -71,8 +74,7 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
     TextView bodyTextView;
 
     ImageButton settingsImageButton;
-    ImageButton refreshImageButton;
-
+    CircleImageView refreshImageButton;
 
     CardView basicDetailsCardView;
     CardView pancardCardView;
@@ -113,10 +115,6 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
     ProgressBar progress_circular;
     ConstraintLayout mainConstraintLayout;
     SwipeRefreshLayout swiperefresh;
-
-
-    NestedScrollView scrollView;
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -482,15 +480,15 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
                 intent.putExtra("fragmentNo", 1);
                 startActivity(intent);
             }
-
-
         }
         if (view.getId() == R.id.settingsImageButton) {
             Intent intent = new Intent(getActivity(), SettingsActivity.class);
             startActivity(intent);
         }
         if (view.getId() == R.id.refreshImageButton) {
-            reload();
+            //reload();
+            Intent intent = new Intent(getActivity(), Activity_UpdateProfile.class);
+            startActivity(intent);
         }
     }
 
@@ -574,6 +572,17 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
                         passbookVerificationStatus = response.body().getData().getUser().getPassbook_approved_status();
                         name = response.body().getData().getUser().getFirstName() + " " + response.body().getData().getUser().getLastName();
                         phoneNumber = response.body().getData().getUser().getMobile();
+                        if(response.body().getData().getUser().getProfileImage()!=null){
+                            editor = sharedPreferences.edit();
+                            editor.putString(SharedPref.PROFILEIMAGE_URL, response.body().getData().getUser().getProfileImage());
+                            editor.apply();
+
+                            Glide.with(Objects.requireNonNull(getActivity())).load(response.body().getData().getUser().getProfileImage())
+                                    .placeholder(R.mipmap.ic_launcher).into(refreshImageButton);
+                        }else {
+                            Glide.with(Objects.requireNonNull(getActivity())).load(R.mipmap.ic_launcher).into(refreshImageButton);
+                        }
+
 
                         documentVerificationMessage = response.body().getData().getUser().getDocumentVerificationComment();
                         basicDetailsVerificationMessage = response.body().getData().getUser().getBasicDetailsApprovalComment();
@@ -609,7 +618,6 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
             });
         }
     }
-
 
     public void openNotificatinDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
