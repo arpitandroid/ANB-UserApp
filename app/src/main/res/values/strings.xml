@@ -214,6 +214,7 @@
     <string name="loan_duration_monthly">loan duration (days)</string>
     <string name="lic_amount_deduction">LIC Amount Deduction *</string>
     <string name="myloans">Payment History</string>
+    <string name="apply_loan_ext">apply Loan ext.</string>
 
     <string-array name="Payment_Mode">
         <item>monthly</item>

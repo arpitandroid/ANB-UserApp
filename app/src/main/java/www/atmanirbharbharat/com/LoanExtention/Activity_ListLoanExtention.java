@@ -3,10 +3,12 @@ package www.atmanirbharbharat.com.LoanExtention;
 import static www.atmanirbharbharat.com.util.AppConstant.hideLoading;
 import static www.atmanirbharbharat.com.util.AppConstant.showLoading;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -130,6 +132,14 @@ public class Activity_ListLoanExtention extends AppCompatActivity {
             public void onRefresh() {
                 GetExtloanList();
                 swiperefresh.setRefreshing(false);
+            }
+        });
+
+        Button Btn_applyforloanext = findViewById(R.id.Btn_applyforloanext);
+        Btn_applyforloanext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Activity_ListLoanExtention.this,Apply_LoanExtention.class).putExtra("LoanAppliedId",LoanAppliedId));
             }
         });
 
