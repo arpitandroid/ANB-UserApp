@@ -82,6 +82,8 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
     TextView emiamounttxt;
     TextView btn_paydetails;
     TextView btn_loanExtention;
+    TextView btn_childview;
+    TextView btn_parentloanbtn;
     private LinearLayout linearLayout;
 
 
@@ -93,28 +95,15 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
     int loanAmount;
     String loanClosureAmount;
     String loanPeriod;
-    String disbursalAmount;
-    String interestFee;
     int processingFee;
     String roi;
-    String dueAmount;
     String dueDate;
     String paymentMode;
     String loanDuration;
     String Emiamount;
-    String penaltyApprovedStatus;
-    String moneyReturnStatus;
-
-    String totalExtensionCharges;
-    String totalExtensionDate;
-
-    String extensionDate;
-    String extensionCharges;
-    String extensionStatus;
     String message;
     public static final String LOANID = "AppliedLoanId";
-
-    String loanId;
+    String loanId,childID,parentID;
     String token;
 
     SharedPreferences sharedPreferences;
@@ -125,19 +114,23 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPreferences = getActivity().getSharedPreferences(SharedPref.SHARED_PREFS, Context.MODE_PRIVATE);
+        sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(SharedPref.SHARED_PREFS, Context.MODE_PRIVATE);
         token = sharedPreferences.getString(SharedPref.TOKEN, " ");
-        loanId = getActivity().getIntent().getStringExtra(LOANID);
+        loanId = Objects.requireNonNull(getActivity()).getIntent().getStringExtra(LOANID);
 
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_applied_loan_detail, container, false);
+
         init(view);
-        getLoanDetailsListApi();
+
+        getLoanDetailsListApi(loanId);
+
         return view;
     }
 
@@ -173,17 +166,36 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         linearLayout = view.findViewById(R.id.linearLayout);
         btn_paydetails = view.findViewById(R.id.btn_paydetails);
         btn_loanExtention = view.findViewById(R.id.btn_loanExtention);
+        btn_childview = view.findViewById(R.id.btn_childview);
+        btn_parentloanbtn = view.findViewById(R.id.btn_parentloanbtn);
         payLoanButton.setOnClickListener(this);
         extendLoanButton.setOnClickListener(this);
         backButtonImage.setOnClickListener(this);
         btn_paydetails.setOnClickListener(this);
         btn_loanExtention.setOnClickListener(this);
+        btn_childview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(childID!=null&& !childID.equals("")){
+                    getLoanDetailsListApi(childID);
+                }
+            }
+        });
+
+        btn_parentloanbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(parentID!=null && !parentID.equals("")){
+                    getLoanDetailsListApi(parentID);
+                }
+            }
+        });
     }
 
 
-
-    private void getLoanDetailsListApi() {
-        if (NetworkInfo.hasConnection(getActivity())) {
+    private void getLoanDetailsListApi(String loanId) {
+        Log.i("arp","ApiId == "+ loanId);
+        if (NetworkInfo.hasConnection(Objects.requireNonNull(getActivity()))) {
             //calling the API client
             ApiInterface apiService = ApiClient.getClient(ApiClient.BASE_URL).create(ApiInterface.class);
 
@@ -210,27 +222,22 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
                         message = response.body().getData().getLoanBasicDetails().getRejectComment();
                         loanClosureAmount = response.body().getData().getLoanBasicDetails().getRemaining_balance();
 
+                        if(response.body().getData().getLoanBasicDetails().getExtensionOf()!=null){
+                            btn_parentloanbtn.setVisibility(View.VISIBLE);
+                            parentID =  response.body().getData().getLoanBasicDetails().getExtensionOf();
+                            Log.i("arp","getExtensionOf== "+parentID);
+                        }else {
+                            btn_parentloanbtn.setVisibility(View.GONE);
+                        }
 
+                        if(response.body().getData().getLoanBasicDetails().getChildLaId()!=null){
+                            btn_childview.setVisibility(View.VISIBLE);
+                            childID =  response.body().getData().getLoanBasicDetails().getChildLaId();
+                            Log.i("arp","getChildLaId== "+childID);
+                        }else {
+                            btn_childview.setVisibility(View.GONE);
+                        }
 
-
-//                        disbursalAmount=response.body().getData().getLoanBasicDetails().getPayableAmount();
-
-
-
-
-//
-//                        dueDate = response.body().getData().getLoanBasicDetails().getLoanEndDate();
-////                        penaltyAmount = response.body().getData().getPenaltyDetails().getAmount();
-//
-//                        extensionStatus = response.body().getData().getLoanBasicDetails().getExtStatus();
-//                        extensionCharges = response.body().getData().getLoanBasicDetails().getExtensionCharges();
-//                        extensionDate = response.body().getData().getLoanBasicDetails().getExtensionDays();
-//                        totalExtensionCharges = response.body().getData().getLoanBasicDetails().getTotalExtensionCharges();
-//                        totalExtensionDate = response.body().getData().getLoanBasicDetails().getTotalExtensionDays();
-//                        penaltyAmount = response.body().getData().getLoanBasicDetails().getLoanPaneltyAmount();
-//                        penaltyDays = response.body().getData().getLoanBasicDetails().getLoanPaneltyDays();
-//                        penaltyApprovedStatus = response.body().getData().getLoanBasicDetails().getPaneltyStatus();
-//                        moneyReturnStatus = response.body().getData().getLoanBasicDetails().getMoneyReturn();
                        setData();
 
                     }
@@ -270,13 +277,6 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         repaytext.setText(getloanrepayDays(paymentMode,loanDuration));
         emiamounttxt.setText("₹ "+Emiamount);
         messageTextView.setText(message);
-
-
-
-//
-//        messageTextView.setVisibility(View.VISIBLE);
-//        messageTextHeading.setVisibility(View.VISIBLE);
-
 
         if (approvedStatus.equals("PAID")){
             approvedStatusTextView.setText(getString(R.string.loan_closed));
@@ -324,7 +324,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         builder.setMessage("You need to make sure your device is conected to Internet")
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        getActivity().onBackPressed();
+                        Objects.requireNonNull(getActivity()).onBackPressed();
 
                     }
                 });
@@ -350,6 +350,14 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         }if(view.getId() == R.id.btn_loanExtention){
             startActivity(new Intent(getActivity(), Activity_ListLoanExtention.class).putExtra("LoanAppliedId",loanId));
         }
+        /*if(view.getId() == R.id.btn_parentloanbtn){
+            getLoanDetailsListApi();
+
+        }
+        if(view.getId() == R.id.btn_childview){
+            getLoanDetailsListApi();
+
+        }*/
     }
 
     private void showtopupDailog() {
@@ -387,39 +395,6 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
                 alertDialog.dismiss();
             }
         });
-    }
-
-   /* private void extendLoanApiHit() {
-        if (NetworkInfo.hasConnection(getActivity())) {
-            //calling the API client
-            ApiInterface apiService = ApiClient.getClient(ApiClient.BASE_URL).create(ApiInterface.class);
-
-            Call<ApplyExtensionModel> call = apiService.applyLoanExtensionApi(token, loanId);
-            call.enqueue(new Callback<ApplyExtensionModel>() {
-                @Override
-                public void onResponse(Call<ApplyExtensionModel> call, Response<ApplyExtensionModel> response) {
-                    if (response.body() != null && response.body().getStatus() == 200) {
-                        reload();
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(getActivity(), "Some error occurred from our end!", Toast.LENGTH_SHORT).show();
-
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ApplyExtensionModel> call, Throwable t) {
-                    Toast.makeText(getActivity(), "OOpss Something went wrong!", Toast.LENGTH_SHORT).show();
-
-                }
-            });
-        }
-    }*/
-
-    private void reload() {
-        getFragmentManager().beginTransaction().detach(this).attach(this).commit();
-
     }
 
     public String getloanrepayDays(String mode, String daysCount){

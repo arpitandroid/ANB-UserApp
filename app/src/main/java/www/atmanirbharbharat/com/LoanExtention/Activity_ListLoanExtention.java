@@ -60,7 +60,7 @@ public class Activity_ListLoanExtention extends AppCompatActivity {
 
         token = sharedPreferences.getString(SharedPref.TOKEN, null);
         
-        init();
+       init();
 
     }
 
@@ -106,7 +106,6 @@ public class Activity_ListLoanExtention extends AppCompatActivity {
                 }
             });
         }
-
     }
 
     private void setAdapter(Model_LoanExtList.ExtensionsList list) {
@@ -117,7 +116,6 @@ public class Activity_ListLoanExtention extends AppCompatActivity {
         loanPaidRecyclerView.setAdapter(adapter);
         
     }
-
 
     private void init() {
 

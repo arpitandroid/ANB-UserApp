@@ -1,11 +1,14 @@
 package www.atmanirbharbharat.com.homeScreen.activity;
 
+import static www.atmanirbharbharat.com.common.SharedPref.Isprofileupdate;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -42,6 +45,19 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
 
         setUpBottomNavigation();
         addAllFragmentOnce();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("arp","onresume=========");
+
+        if(Isprofileupdate){
+            setUpBottomNavigation();
+            addAllFragmentOnce();
+            Isprofileupdate = false;
+        }
+
     }
 
     //    ------------------------views are ititialsed here-----------------------

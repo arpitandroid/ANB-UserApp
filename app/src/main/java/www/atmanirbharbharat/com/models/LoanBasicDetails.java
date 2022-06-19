@@ -1,5 +1,6 @@
 package www.atmanirbharbharat.com.models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -118,6 +119,33 @@ public class LoanBasicDetails implements Serializable {
 
     @SerializedName("emi_amount")
     private String emi_amount;
+
+    @SerializedName("extension_of")
+    @Expose
+    private String extensionOf;
+    @SerializedName("child_la_id")
+    @Expose
+    private String childLaId;
+
+    public void setLoanAppliedId(String loanAppliedId) {
+        this.loanAppliedId = loanAppliedId;
+    }
+
+    public String getExtensionOf() {
+        return extensionOf;
+    }
+
+    public void setExtensionOf(String extensionOf) {
+        this.extensionOf = extensionOf;
+    }
+
+    public String getChildLaId() {
+        return childLaId;
+    }
+
+    public void setChildLaId(String childLaId) {
+        this.childLaId = childLaId;
+    }
 
     public String getEmi_amount() {
         return emi_amount;
@@ -280,5 +308,6 @@ public class LoanBasicDetails implements Serializable {
     public String getLs_status() {
         return ls_status;
     }
+
 
 }

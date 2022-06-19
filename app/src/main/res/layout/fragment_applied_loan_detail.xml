@@ -367,6 +367,48 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btn_loanExtention" />
 
+                <LinearLayout
+                    android:id="@+id/ll_ext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/messageTextView">
+
+                    <TextView
+                        android:id="@+id/btn_childview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_orange_clicked"
+                        android:drawablePadding="10dp"
+                        android:padding="15dp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:visibility="visible"
+                        android:text="Child Loan"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                    <TextView
+                        android:id="@+id/btn_parentloanbtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_orange_clicked"
+                        android:drawablePadding="10dp"
+                        android:padding="15dp"
+                        android:visibility="visible"
+                        android:text="Parent Loan"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal" />
+
+                </LinearLayout>
+
+
                 <TextView
                     android:id="@+id/btn_loanExtention"
                     android:layout_width="match_parent"
@@ -380,10 +422,7 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:gravity="center_horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/messageTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/ll_ext" />
 
                 <TextView
                     android:id="@+id/repaytextview"

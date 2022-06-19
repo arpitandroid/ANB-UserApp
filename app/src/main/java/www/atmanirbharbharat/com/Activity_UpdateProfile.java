@@ -1,4 +1,6 @@
 package www.atmanirbharbharat.com;
+import static www.atmanirbharbharat.com.common.SharedPref.Isprofileupdate;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -85,26 +87,8 @@ public class Activity_UpdateProfile extends AppCompatActivity implements View.On
         tokenLogin = sharedPreferences.getString(SharedPref.TOKEN, "@null");
         profileImageUrl = sharedPreferences.getString(SharedPref.PROFILEIMAGE_URL, "@null");
         Log.i("arp","profUrl=> "+profileImageUrl);
-        Glide.with(Activity_UpdateProfile.this).load(profileImageUrl).placeholder(R.drawable.elmtextlogoimg).into(imageFrontAdhaar);
+       // Glide.with(Activity_UpdateProfile.this).load(profileImageUrl).placeholder(R.drawable.splashimage_small).into(imageFrontAdhaar);
     }
-
-  /*  @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_aadhar_front_scan, container, false);
-        init(viewGroup);
-        if (getContext() instanceof EditDataActivity) {
-            CircularProgressDrawable circularProgressDrawable = new CircularProgressDrawable(getContext());
-            circularProgressDrawable.setStrokeWidth(5f);
-            circularProgressDrawable.setCenterRadius(30f);
-            circularProgressDrawable.start();
-            Glide.with(this).load(adhaarFrontImageUrl).placeholder(circularProgressDrawable).into(imageFrontAdhaar);
-
-        }
-        return viewGroup;
-    }*/
-
 
     private void init() {
         uploadAdhaarFront = findViewById(R.id.uploadAdhaarFront);
@@ -118,7 +102,8 @@ public class Activity_UpdateProfile extends AppCompatActivity implements View.On
        tvtitle.setText("Update Profile Image");
         progressbar = findViewById(R.id.progressbar);
         imageFrontAdhaar = findViewById(R.id.imageFrontAdhaar);
-        Glide.with(Activity_UpdateProfile.this).load(profileImageUrl).placeholder(R.drawable.elmtextlogoimg).into(imageFrontAdhaar);
+       // imageFrontAdhaar.setScaleType(ImageView.ScaleType.FIT_XY);
+        Glide.with(Activity_UpdateProfile.this).load(profileImageUrl).placeholder(R.drawable.profileimageplaceholder).into(imageFrontAdhaar);
         progressbar.setVisibility(View.GONE);
         uploadAdhaarFront.setOnClickListener(this);
         nextButton.setOnClickListener(this);
@@ -233,6 +218,8 @@ public class Activity_UpdateProfile extends AppCompatActivity implements View.On
                         editor.apply();
                         if (selectedResponse != 2)
                             setImageView();
+
+                        Isprofileupdate = true;
 
                     } else {
                         uploadAdhaarFront.setEnabled(true);

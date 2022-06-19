@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -67,6 +68,8 @@ public class Apply_LoanExtention extends AppCompatActivity {
             }
         });
 
+        Button bnt = findViewById(R.id.next_ROI);
+        bnt.setText("apply");
        findViewById(R.id.next_ROI).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

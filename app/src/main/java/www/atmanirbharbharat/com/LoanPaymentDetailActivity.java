@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +33,8 @@ import www.atmanirbharbharat.com.util.NetworkInfo;
 
 import static www.atmanirbharbharat.com.util.AppConstant.hideLoading;
 import static www.atmanirbharbharat.com.util.AppConstant.showLoading;
+
+import com.google.gson.Gson;
 
 public class LoanPaymentDetailActivity extends AppCompatActivity {
 
@@ -55,7 +58,7 @@ public class LoanPaymentDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loadpaidhistory);
 
         // Intent from DiscoverHomeScreenFragment ----
-         LoanAppliedId = getIntent().getStringExtra("LoanAppliedId");
+        LoanAppliedId = getIntent().getStringExtra("LoanAppliedId");
         Log.i("arp", "LoanAppliedId= "+LoanAppliedId);
         sharedPreferences = getSharedPreferences(SharedPref.SHARED_PREFS, MODE_PRIVATE);
 
@@ -85,6 +88,7 @@ public class LoanPaymentDetailActivity extends AppCompatActivity {
 
                     res  =  response.body();
                     if(res!=null){
+                        Log.i("arp","res== "+new Gson().toJson(response.body()));
                         if(res.getStatus()==200 && res.getData()!=null){
 
                             setAdapter();
@@ -123,6 +127,8 @@ public class LoanPaymentDetailActivity extends AppCompatActivity {
 
         loanPaidRecyclerView = findViewById(R.id.loanPaidRecyclerView);
         noDataFoundImageView = findViewById(R.id.noDataFoundImageView);
+       Button btn = findViewById(R.id.Btn_applyforloanext);
+       btn.setVisibility(View.GONE);
 
         swiperefresh = findViewById(R.id.swiperefresh);
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

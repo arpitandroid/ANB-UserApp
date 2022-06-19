@@ -14,6 +14,8 @@ public class SharedPref {
     public static final String NAME = "name";
     public static final String DEFAULT_FRAGMENT_NO_AFTER_OPENING = "fragmentNo";
 
+    public static boolean Isprofileupdate = false;
+
     public static final String HOMESCREENDATA ="homeScreenData";
 
 

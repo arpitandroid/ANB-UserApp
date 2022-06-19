@@ -452,18 +452,21 @@
 
     <Button
         android:id="@+id/next_ROI"
-        android:textStyle="bold"
-        android:layout_margin="@dimen/_5sdp"
-        android:paddingStart="@dimen/_10sdp"
-        android:paddingEnd="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_orange_custom"
-        android:textColor="@color/white"
-        android:text="@string/get_roi"
-        android:textSize="@dimen/_13sdp"
-        android:gravity="center"
         android:layout_alignParentBottom="true"
-        android:drawableEnd="@drawable/next"/>
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/button_orange_custom"
+        android:drawableEnd="@drawable/next"
+        android:gravity="center"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:text="@string/get_roi"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

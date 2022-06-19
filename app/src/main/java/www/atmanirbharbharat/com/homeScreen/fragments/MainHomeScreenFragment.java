@@ -75,8 +75,10 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
 
     ImageButton settingsImageButton;
     CircleImageView refreshImageButton;
+    CircleImageView CIV_profile;
 
     CardView basicDetailsCardView;
+    CardView profilepictureCardView;
     CardView pancardCardView;
     CardView documentVerificationCardView;
     CardView checkbookverificationCardView;
@@ -101,6 +103,7 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
     String panCardVerificationStatus;
     String documentVerificationStatus;
     String passbookVerificationStatus;
+    String profileUrl;
 
     FragmentManager fragmentManager;
 
@@ -111,6 +114,7 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
     TextView panCardApprovalStatusTextView;
     TextView documentVerificationApprovalStatusTextView;
     TextView checkbookVerificationApprovalTextView;
+    TextView tv_statusProfile;
 
     ProgressBar progress_circular;
     ConstraintLayout mainConstraintLayout;
@@ -149,6 +153,16 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
 
         basicDetailsApprovalStatusTextView.setText(basicDetailsApprovalStatus);
 
+        if (profileUrl.startsWith("https")) {
+            tv_statusProfile.setTextColor(ContextCompat.getColor(getContext(), R.color.green));
+            tv_statusProfile.setText("Uploaded");
+            profilepictureCardView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_green));
+            Glide.with(Objects.requireNonNull(getActivity())).load(profileUrl).placeholder(R.mipmap.ic_launcher).into(CIV_profile);
+        } else {
+            tv_statusProfile.setTextColor(ContextCompat.getColor(getContext(), R.color.red));
+            tv_statusProfile.setText("Not Available");
+            profilepictureCardView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_red));
+        }
 
         // pancard approval text status
         if (panCardVerificationStatus == "APPROVED") {
@@ -223,8 +237,10 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
         pancardCardView = viewGroup.findViewById(R.id.pancardCardView);
         documentVerificationCardView = viewGroup.findViewById(R.id.AdharCardCardView);
         checkbookverificationCardView = viewGroup.findViewById(R.id.checkbookCardView);
+        profilepictureCardView = viewGroup.findViewById(R.id.profileCardView);
         settingsImageButton = viewGroup.findViewById(R.id.settingsImageButton);
         refreshImageButton = viewGroup.findViewById(R.id.refreshImageButton);
+        CIV_profile = viewGroup.findViewById(R.id.CIV_profile);
 
 
         nameTextView = viewGroup.findViewById(R.id.nameTextView);
@@ -237,6 +253,7 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
         panCardApprovalStatusTextView = viewGroup.findViewById(R.id.paySlipApprovalStatusTextView);
         documentVerificationApprovalStatusTextView = viewGroup.findViewById(R.id.documentVerificationApprovalStatusTextView);
         checkbookVerificationApprovalTextView = viewGroup.findViewById(R.id.scheckbookVerificationApprovalTextView);
+        tv_statusProfile = viewGroup.findViewById(R.id.tv_statusProfile);
 
 
         feedbackButton.setOnClickListener(this);
@@ -248,6 +265,7 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
         settingsImageButton.setOnClickListener(this);
         refreshImageButton.setOnClickListener(this);
         waitingOrApprovedImageView.setOnClickListener(this);
+        profilepictureCardView.setOnClickListener(this);
 
 //        swiperefresh = viewGroup.findViewById(R.id.swiperefresh);
 //        scrollView = viewGroup.findViewById(R.id.scrollView);
@@ -311,75 +329,6 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
                 Intent intent = new Intent(getActivity(), LoanActivity.class);
                 intent.putExtra(SelectLoanFragment.LOANDETAILS, arrayList.get(position));
                 startActivity(intent);
-
-
-//
-//                if (
-////                        !bankDetailsVerificationStatus.equals("APPROVED") ||
-//                        !basicDetailsApprovalStatus.equals("APPROVED")
-//                                || !documentVerificationStatus.equals("APPROVED") || !selfieVerificationStatus.equals("APPROVED")
-//                                || !paySlipVerificationStatus.equals("APPROVED")
-//                ) {
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    ViewGroup viewGroup = getView().findViewById(android.R.id.content);
-//                    View dialogView = LayoutInflater.from(getView().getContext()).inflate(R.layout.home_screen_dialog1, viewGroup, false);
-//                    builder.setView(dialogView);
-//
-//                    final AlertDialog alertDialog = builder.create();
-//                    alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                    alertDialog.show();
-//
-//                    editButton = dialogView.findViewById(R.id.editButton);
-//                    cancelButton = dialogView.findViewById(R.id.cancelButton);
-//                    headingTextView = dialogView.findViewById(R.id.headingTextView);
-//                    bodyTextView = dialogView.findViewById(R.id.bodyTextView);
-//
-//                    editButton.setVisibility(View.GONE);
-//                    headingTextView.setText(getString(R.string.approval_process_is_in_progress));
-//                    bodyTextView.setText(getString(R.string.we_are_absolutely_sorry_for_making_you_wait));
-//
-//
-//
-//                    cancelButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            alertDialog.dismiss();
-//                        }
-//                    });
-//
-//                } else if(!arrayList.get(position).getEligibility()){
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-//                    ViewGroup viewGroup = getView().findViewById(android.R.id.content);
-//                    View dialogView = LayoutInflater.from(getView().getContext()).inflate(R.layout.home_screen_dialog1, viewGroup, false);
-//                    builder.setView(dialogView);
-//
-//                    final AlertDialog alertDialog = builder.create();
-//                    alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//                    alertDialog.show();
-//
-//                    editButton = dialogView.findViewById(R.id.editButton);
-//                    cancelButton = dialogView.findViewById(R.id.cancelButton);
-//                    headingTextView = dialogView.findViewById(R.id.headingTextView);
-//                    bodyTextView = dialogView.findViewById(R.id.bodyTextView);
-//
-//                    editButton.setVisibility(View.GONE);
-//                    headingTextView.setText(getString(R.string.this_loan_cannot_be_accessed_by_you));
-//                    bodyTextView.setText(getString(R.string.sorry_not_Eligible));
-//
-//
-//
-//                    cancelButton.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            alertDialog.dismiss();
-//                        }
-//                    });
-//                }else {
-//                    //move to loan
-//                    Intent intent = new Intent(getActivity(), LoanActivity.class);
-//                    intent.putExtra(SelectLoanFragment.LOANDETAILS, arrayList.get(position));
-//                    startActivity(intent);
-//                }
             }
         });
     }
@@ -440,9 +389,8 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
                 intent.putExtra("fragmentNo", 0);
                 startActivity(intent);
             }
-
-
         }
+
         if (view.getId() == R.id.AdharCardCardView) {
             openDialog(2, documentVerificationStatus);
         }
@@ -485,11 +433,51 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
             Intent intent = new Intent(getActivity(), SettingsActivity.class);
             startActivity(intent);
         }
-        if (view.getId() == R.id.refreshImageButton) {
+        /*if (view.getId() == R.id.refreshImageButton) {
             //reload();
             Intent intent = new Intent(getActivity(), Activity_UpdateProfile.class);
             startActivity(intent);
         }
+*/
+        if (view.getId() == R.id.profileCardView) {
+            if(!profileUrl.startsWith("https")){
+                Intent intent = new Intent(getActivity(), Activity_UpdateProfile.class);
+                startActivity(intent);
+            }else {
+                OpenDialog();
+            }
+        }
+    }
+
+
+    private void OpenDialog(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Objects.requireNonNull(getActivity()));
+        ViewGroup viewGroup = Objects.requireNonNull(getView()).findViewById(android.R.id.content);
+        View dialogView = LayoutInflater.from(getView().getContext()).inflate(R.layout
+                .home_screen_dialog1, viewGroup, false);
+        builder.setView(dialogView);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alertDialog.show();
+
+        editButton = dialogView.findViewById(R.id.editButton);
+        cancelButton = dialogView.findViewById(R.id.cancelButton);
+        headingTextView = dialogView.findViewById(R.id.headingTextView);
+        bodyTextView = dialogView.findViewById(R.id.bodyTextView);
+
+        headingTextView.setText(getString(R.string.oops_you_cannot_edit_now));
+        bodyTextView.setText(getString(R.string.details_have_been_approved));
+        editButton.setVisibility(View.GONE);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+
     }
 
 
@@ -566,6 +554,16 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
                         editor.apply();
 
                         basicDetailsApprovalStatus = response.body().getData().getUser().getBasicDetailsApprovalStatus();
+
+                       /* if(response.body().getData().getUser().getProfileImage()!=null){
+                            profileUrl = response.body().getData().getUser().getProfileImage();
+                        }else {
+                            profileUrl = "";
+                            editor = sharedPreferences.edit();
+                            editor.putString(SharedPref.PROFILEIMAGE_URL, "");
+                            editor.apply();
+                        }*/
+
                         nomineeVerificationStatus = response.body().getData().getUser().getEmergencyContactStatus();
                         panCardVerificationStatus = response.body().getData().getUser().getPan_card_approved_status();
                         documentVerificationStatus = response.body().getData().getUser().getDocumentVerificationStatus();
@@ -579,10 +577,15 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
 
                             Glide.with(Objects.requireNonNull(getActivity())).load(response.body().getData().getUser().getProfileImage())
                                     .placeholder(R.mipmap.ic_launcher).into(refreshImageButton);
+
+                            profileUrl = response.body().getData().getUser().getProfileImage();
                         }else {
                             Glide.with(Objects.requireNonNull(getActivity())).load(R.mipmap.ic_launcher).into(refreshImageButton);
+                            profileUrl = "";
+                            editor = sharedPreferences.edit();
+                            editor.putString(SharedPref.PROFILEIMAGE_URL, response.body().getData().getUser().getProfileImage());
+                            editor.apply();
                         }
-
 
                         documentVerificationMessage = response.body().getData().getUser().getDocumentVerificationComment();
                         basicDetailsVerificationMessage = response.body().getData().getUser().getBasicDetailsApprovalComment();
