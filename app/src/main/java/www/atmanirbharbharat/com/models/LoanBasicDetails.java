@@ -126,6 +126,17 @@ public class LoanBasicDetails implements Serializable {
     @SerializedName("child_la_id")
     @Expose
     private String childLaId;
+    @SerializedName("initial_amount")
+    @Expose
+    private String initialamount;
+
+    public String getInitialamount() {
+        return initialamount;
+    }
+
+    public void setInitialamount(String initialamount) {
+        this.initialamount = initialamount;
+    }
 
     public void setLoanAppliedId(String loanAppliedId) {
         this.loanAppliedId = loanAppliedId;

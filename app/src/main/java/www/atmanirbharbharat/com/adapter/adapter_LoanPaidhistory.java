@@ -39,9 +39,9 @@ public class adapter_LoanPaidhistory extends RecyclerView.Adapter<adapter_LoanPa
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.amount_received_by.setText("Amount Received by : "+list.get(position).getAmountReceivedBy());
-        holder.amount.setText("Amount(INR) : "+list.get(position).getAmount());
-        holder.amount_received.setText("Received Amount(INR) : "+list.get(position).getAmountReceived());
+      //  holder.amount_received_by.setText("Amount Received by : "+list.get(position).getAmountReceivedBy());
+        holder.amount.setText("Amount (INR) : "+list.get(position).getAmount());
+        holder.amount_received.setText("Loan apply id : "+list.get(position).getLoanApplyId());
         holder.payment_date.setText("Payment Date : "+list.get(position).getPaymentDate());
 
         String status = list.get(position).getStatus();
@@ -51,7 +51,7 @@ public class adapter_LoanPaidhistory extends RecyclerView.Adapter<adapter_LoanPa
             holder.status.setText("Status : "+"PENDING");
         }
 
-        holder.manager_name.setText("Manager Name : "+list.get(position).getManagerName());
+       // holder.manager_name.setText("Manager Name : "+list.get(position).getManagerName());
 
 
     }
@@ -69,11 +69,13 @@ public class adapter_LoanPaidhistory extends RecyclerView.Adapter<adapter_LoanPa
             super(itemView);
 
             amount_received_by =  itemView.findViewById(R.id.amount_received_by);
+            amount_received_by.setVisibility(View.GONE);
             amount =  itemView.findViewById(R.id.amount);
             amount_received =  itemView.findViewById(R.id.amount_received);
             payment_date =  itemView.findViewById(R.id.payment_date);
             status =  itemView.findViewById(R.id.status);
             manager_name =  itemView.findViewById(R.id.manager_name);
+            manager_name.setVisibility(View.GONE);
 
         }
     }

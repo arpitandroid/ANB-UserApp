@@ -86,21 +86,25 @@ public class LoanPaymentDetailActivity extends AppCompatActivity {
                 public void onResponse(Call<List_Loanpaidhistory> call, Response<List_Loanpaidhistory> response) {
                     hideLoading();
 
-                    res  =  response.body();
-                    if(res!=null){
-                        Log.i("arp","res== "+new Gson().toJson(response.body()));
-                        if(res.getStatus()==200 && res.getData()!=null){
+                    res = response.body();
+                    if (res != null) {
+                        Log.i("arp", "res== " + new Gson().toJson(response.body()));
 
-                            setAdapter();
-                            
-                        }else if(res.getStatus()==201) {
+                        if (res.getStatus() == 200) {
+                            if(res.getData() != null && !res.getData().isEmpty()){
+                                setAdapter();
+                            }else {
+                                loanPaidRecyclerView.setVisibility(View.GONE);
+                                noDataFoundImageView.setVisibility(View.VISIBLE);
+                            }
+
+                        } else if (res.getStatus() == 201) {
                             Toast.makeText(LoanPaymentDetailActivity.this, res.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    }else {
+                    } else {
                         loanPaidRecyclerView.setVisibility(View.GONE);
                         noDataFoundImageView.setVisibility(View.VISIBLE);
                     }
-
                 }
 
                 @Override

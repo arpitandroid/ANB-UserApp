@@ -212,7 +212,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
 
                         textView9.setText("Loan ID- "+response.body().getData().getLoanBasicDetails().getLoanAppliedId());
                         approvedStatus = response.body().getData().getLoanBasicDetails().getLoanStatus();
-                        loanAmount = response.body().getData().getLoanBasicDetails().getAmount();
+                        loanAmount = Integer.parseInt(response.body().getData().getLoanBasicDetails().getInitialamount());  /// replace Amount to initial amount
                         loanPeriod = response.body().getData().getLoanBasicDetails().getLoan_duration();
                         processingFee = response.body().getData().getLoanBasicDetails().getProcessingFee();
                         roi = String.valueOf(response.body().getData().getLoanBasicDetails().getROI());
