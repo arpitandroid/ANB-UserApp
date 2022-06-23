@@ -36,7 +36,7 @@ public class adapter_ListLoanExtention extends RecyclerView.Adapter<adapter_List
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
-        holder.amount_received_by.setText("Ext Amount(INR) : "+list.getExtAmount());
+        holder.amount_received_by.setText("Ext Amount (INR) : "+list.getExtAmount());
        // holder.amount.setText("Amount(INR) : "+list.get(position).getAmount());
         holder.amount_received.setText("Ext Duration : "+list.getExtDuration());
         holder.payment_date.setText("Payment Mode : "+list.getExtPaymentMode());
@@ -69,10 +69,12 @@ public class adapter_ListLoanExtention extends RecyclerView.Adapter<adapter_List
 
             amount_received_by =  itemView.findViewById(R.id.amount_received_by);
             amount =  itemView.findViewById(R.id.amount);
+            amount.setVisibility(View.GONE);
             amount_received =  itemView.findViewById(R.id.amount_received);
             payment_date =  itemView.findViewById(R.id.payment_date);
             status =  itemView.findViewById(R.id.status);
             manager_name =  itemView.findViewById(R.id.manager_name);
+            manager_name.setVisibility(View.GONE);
 
         }
     }

@@ -99,7 +99,7 @@ public class DiscoverHomeScreenFragment extends Fragment {
 
                             if(!response.body().getData().getUpcommingPayment().isEmpty()){
                                 upcommingPaymentcard.setVisibility(View.VISIBLE);
-                                loanAmountText.setText("EMI - "+String.valueOf(response.body().getData().getUpcommingPayment().get(0).getAmount()) + " -/  (For Loan ID - "+ response.body().getData().getUpcommingPayment().get(0).getLoan_apply_id()+" )");
+                                loanAmountText.setText("EMI - "+String.valueOf(response.body().getData().getUpcommingPayment().get(0).getInitialamount()) + " -/  (For Loan ID - "+ response.body().getData().getUpcommingPayment().get(0).getLoan_apply_id()+" )");
 
                                 SimpleDateFormat DateFor ;
                                 SimpleDateFormat fromUser = new SimpleDateFormat("yyyy-mm-dd");

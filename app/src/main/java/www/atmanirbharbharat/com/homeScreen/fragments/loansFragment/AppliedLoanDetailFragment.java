@@ -297,7 +297,7 @@ public class AppliedLoanDetailFragment extends Fragment implements View.OnClickL
         if(approvedStatus.equals("RUNNING")){
             approvedStatusTextView.setText("Loan Running");
 //            linearLayout.setVisibility(View.VISIBLE);
-            btn_loanExtention.setVisibility(View.VISIBLE);
+          //  btn_loanExtention.setVisibility(View.VISIBLE);
         }
 
         if(!approvedStatus.equalsIgnoreCase("pending")){

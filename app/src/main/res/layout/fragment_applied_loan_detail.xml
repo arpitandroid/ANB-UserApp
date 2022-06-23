@@ -417,7 +417,6 @@
                     android:background="@drawable/button_orange_clicked"
                     android:drawablePadding="10dp"
                     android:padding="15dp"
-                    android:visibility="gone"
                     android:text="Loan Extension"
                     android:textColor="@color/white"
                     android:textStyle="bold"

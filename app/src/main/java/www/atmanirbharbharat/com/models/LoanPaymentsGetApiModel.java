@@ -69,6 +69,17 @@ public class LoanPaymentsGetApiModel {
         @SerializedName("bounce_charges")
         private String bounce_charges;
 
+        @SerializedName("initial_amount")
+        private String initialamount;
+
+        public String getInitialamount() {
+            return initialamount;
+        }
+
+        public void setInitialamount(String initialamount) {
+            this.initialamount = initialamount;
+        }
+
         public String getLoanPaidId() {
             return loanPaidId;
         }
@@ -111,6 +122,17 @@ public class LoanPaymentsGetApiModel {
 
         @SerializedName("payment_date")
         private String payment_date;
+
+        @SerializedName("initial_amount")
+        private String initialamount;
+
+        public String getInitialamount() {
+            return initialamount;
+        }
+
+        public void setInitialamount(String initialamount) {
+            this.initialamount = initialamount;
+        }
 
         public String getLoan_apply_id() {
             return loan_apply_id;
