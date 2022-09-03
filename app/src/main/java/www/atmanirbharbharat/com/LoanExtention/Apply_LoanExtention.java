@@ -73,16 +73,36 @@ public class Apply_LoanExtention extends AppCompatActivity {
        findViewById(R.id.next_ROI).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int amnt =0;
+                int duration =0;
+                if(AmtEditText.getText().toString().trim().length()>1){
+                   amnt = Integer.parseInt(AmtEditText.getText().toString().trim());
+                }
+                if(ET_Loanduration.getText().toString().trim().length()>1){
+                    duration = Integer.parseInt(ET_Loanduration.getText().toString().trim());
+                }
 
-                if(AmtEditText.getText().toString().trim().length()==0){
+                if(AmtEditText.getText().toString().trim().length()==0 ){
                     Toast.makeText(Apply_LoanExtention.this, "Please enter amount", Toast.LENGTH_SHORT).show();
 
-                } else if(ET_Loanduration.getText().toString().trim().length()==0){
+                }else if(amnt > 1000000){
+                    Toast.makeText(Apply_LoanExtention.this, "Max amount 1000000", Toast.LENGTH_SHORT).show();
+
+                }
+
+                else if(ET_Loanduration.getText().toString().trim().length()==0){
                     Toast.makeText(Apply_LoanExtention.this, "Please enter Duration", Toast.LENGTH_SHORT).show();
 
-                }else {
+                }
+                else if(duration > 2000){
+                    Toast.makeText(Apply_LoanExtention.this, "Max Duration 2000(days)", Toast.LENGTH_SHORT).show();
+
+                }
+
+                else {
 
                     extendLoanApi();
+
                         /* startActivity(new Intent(Activity_LoanExtention.this,ManualLoadDetail_Activity.class)
                                 .putExtra("amnt",AmtEditText.getText().toString().trim())
                                 .putExtra("duration",ET_Loanduration.getText().toString())

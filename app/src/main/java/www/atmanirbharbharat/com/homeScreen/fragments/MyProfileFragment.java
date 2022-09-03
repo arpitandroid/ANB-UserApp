@@ -32,7 +32,7 @@ import www.atmanirbharbharat.com.util.NetworkInfo;
 import static android.content.Context.MODE_PRIVATE;
 
 
-public class MeHomeScreenFragment extends Fragment {
+public class MyProfileFragment extends Fragment {
 
     TextView nameTextView;
     TextView locationTextView;

@@ -1,12 +1,10 @@
 package www.atmanirbharbharat.com.homeScreen.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +12,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import www.atmanirbharbharat.com.ManualLoadDetail_Activity;
 import www.atmanirbharbharat.com.R;
 
@@ -29,6 +30,7 @@ public class Activity_CustomLoan extends AppCompatActivity {
         setContentView(R.layout.activity_custom_loan);
 
         AmtEditText = findViewById(R.id.AmtEditText);
+
         ET_Loanduration = findViewById(R.id.ET_Loanduration);
 
        /* sharedPreferences = getSharedPreferences(SharedPref.SHARED_PREFS, Context.MODE_PRIVATE);
@@ -45,11 +47,30 @@ public class Activity_CustomLoan extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(AmtEditText.getText().toString().trim().length()==0){
+                int amnt =0;
+                int duration =0;
+                if(AmtEditText.getText().toString().trim().length()>1){
+                    amnt = Integer.parseInt(AmtEditText.getText().toString().trim());
+                }
+                if(ET_Loanduration.getText().toString().trim().length()>1){
+                    duration = Integer.parseInt(ET_Loanduration.getText().toString().trim());
+                }
+
+                if(AmtEditText.getText().toString().trim().length()==0 ){
                     Toast.makeText(Activity_CustomLoan.this, "Please enter amount", Toast.LENGTH_SHORT).show();
 
-                } else if(ET_Loanduration.getText().toString().trim().length()==0){
+                }else if(amnt > 1000000){
+                    Toast.makeText(Activity_CustomLoan.this, "Max amount 1000000", Toast.LENGTH_SHORT).show();
+
+                }
+
+                else if(ET_Loanduration.getText().toString().trim().length()==0){
                     Toast.makeText(Activity_CustomLoan.this, "Please enter Duration", Toast.LENGTH_SHORT).show();
+
+                }
+                else if(duration > 2000){
+                    Toast.makeText(Activity_CustomLoan.this, "Max Duration 2000(days)", Toast.LENGTH_SHORT).show();
+
 
                 }else {
 

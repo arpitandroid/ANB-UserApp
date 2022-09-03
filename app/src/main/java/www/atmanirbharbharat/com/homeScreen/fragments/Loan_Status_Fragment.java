@@ -36,7 +36,7 @@ import www.atmanirbharbharat.com.util.NetworkInfo;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class AppliedLoanHomeScreenFragment extends Fragment {
+public class Loan_Status_Fragment extends Fragment {
 
 
     String token;
@@ -55,7 +55,7 @@ public class AppliedLoanHomeScreenFragment extends Fragment {
 
     SwipeRefreshLayout swiperefresh;
 
-    public AppliedLoanHomeScreenFragment() {
+    public Loan_Status_Fragment() {
         // Required empty public constructor
     }
 

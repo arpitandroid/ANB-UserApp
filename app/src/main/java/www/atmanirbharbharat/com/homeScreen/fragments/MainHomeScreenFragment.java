@@ -58,6 +58,7 @@ import www.atmanirbharbharat.com.util.ApiClient;
 import www.atmanirbharbharat.com.util.NetworkInfo;
 
 import static android.content.Context.MODE_PRIVATE;
+import static www.atmanirbharbharat.com.common.SharedPref.Isprofileupdate;
 
 public class MainHomeScreenFragment extends Fragment implements View.OnClickListener {
 
@@ -308,12 +309,24 @@ public class MainHomeScreenFragment extends Fragment implements View.OnClickList
 
     }
 
-
-    private void reload() {
+/*    private void reload() {
         getFragmentManager().beginTransaction().detach(this).attach(this).commit();
 
-    }
+    }*/
 
+    @Override
+    public void onResume() {
+
+        Log.i("arp","====== onresume:MainHomeScreen =======");
+        Log.i("arp","====== Isprofileupdate =======" + Isprofileupdate);
+
+        if(Isprofileupdate){
+            showHomeScreenDataApi();
+            Isprofileupdate = false;
+        }
+
+        super.onResume();
+    }
 
     private void setAdapter() {
 

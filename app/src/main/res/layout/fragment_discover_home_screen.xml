@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".homeScreen.fragments.DiscoverHomeScreenFragment"
+    tools:context=".homeScreen.fragments.LoanPayments_Fragment"
     android:fillViewport="true"
     android:background="@drawable/backgroundstyle">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

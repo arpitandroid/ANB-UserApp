@@ -41,7 +41,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import com.google.gson.Gson;
 
-public class DiscoverHomeScreenFragment extends Fragment {
+public class LoanPayments_Fragment extends Fragment {
 
     String token;
     ImageView noDataFoundImageView;
@@ -145,7 +145,7 @@ public class DiscoverHomeScreenFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getContext());
         loanPaidRecyclerView.setLayoutManager(layoutManager);
         loanPaidRecyclerView.setHasFixedSize(true);
-        adapter = new PaymentsListAdapter(getActivity(), loanPayments);
+        adapter = new PaymentsListAdapter(loanPayments);
         loanPaidRecyclerView.setAdapter(adapter);
       /*  adapter.setOnItemClickLister(new PaymentsListAdapter.OnItemClickListener() {
             @Override

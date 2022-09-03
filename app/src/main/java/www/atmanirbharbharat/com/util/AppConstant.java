@@ -8,6 +8,9 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.Window;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import www.atmanirbharbharat.com.R;
 
 public class AppConstant {
@@ -45,5 +48,21 @@ public class AppConstant {
         }
     }
 
+//    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+//            Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    public static boolean validateEmail(String emailStr) {
+        if(!emailStr.equals("")){
+            String regex = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(emailStr);
+
+            Log.i("arp","matcher-value==>"+matcher.matches());
+            Log.i("arp","email ==>"+emailStr);
+            return matcher.matches();
+        }else {
+            return false;
+        }
+    }
 
 }

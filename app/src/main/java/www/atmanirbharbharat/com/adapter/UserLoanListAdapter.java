@@ -35,7 +35,7 @@ public class UserLoanListAdapter extends RecyclerView.Adapter<UserLoanListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-        holder.loanAmountText.setText(String.valueOf(list.get(position).getAmount())+" "+"-/");
+        holder.loanAmountText.setText(String.valueOf(list.get(position).getInitialamount())+" "+"-/");
 
         holder.tenureTextView.append(" " + list.get(position).getTenure() + " days");
         holder.tenureTextView.setText(getloanrepayDays(list.get(position).getPayment_mode(),list.get(position).getLoan_duration()));

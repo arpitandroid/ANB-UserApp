@@ -51,11 +51,12 @@
             android:drawablePadding="@dimen/_10sdp"
             android:layout_marginStart="@dimen/_10sdp"
             android:imeOptions="actionNext"
-            android:inputType="number|phone"
+            android:inputType="number"
+            android:maxLength="10"
             android:textSize="@dimen/_15sdp"
             android:focusableInTouchMode="true"
             android:layout_marginTop="@dimen/_20sdp"
-            android:maxLength="10"/>
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -75,11 +76,12 @@
             android:hint="@string/loan_duration_monthly"
             android:drawablePadding="@dimen/_10sdp"
             android:imeOptions="actionDone"
-            android:inputType="number|phone"
+            android:inputType="number"
+            android:maxLength="5"
             android:layout_marginStart="@dimen/_10sdp"
             android:textSize="@dimen/_15sdp"
             android:focusableInTouchMode="true"
-            android:maxLength="4"/>
+           />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout

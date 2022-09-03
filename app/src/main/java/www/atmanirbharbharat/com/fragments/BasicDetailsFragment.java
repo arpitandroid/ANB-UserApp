@@ -1,5 +1,9 @@
 package www.atmanirbharbharat.com.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import static www.atmanirbharbharat.com.util.AppConstant.validateEmail;
+
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.ActivityNotFoundException;
@@ -24,7 +28,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -37,22 +40,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import www.atmanirbharbharat.com.EditDataActivity;
-import www.atmanirbharbharat.com.dialogfragments.nomineedetails;
-import www.atmanirbharbharat.com.homeScreen.activity.HomeScreenActivity;
-import www.atmanirbharbharat.com.Interface.ApiInterface;
 import www.atmanirbharbharat.com.R;
 import www.atmanirbharbharat.com.RegisterSlideActivity;
 import www.atmanirbharbharat.com.common.SharedPref;
+import www.atmanirbharbharat.com.dialogfragments.nomineedetails;
 import www.atmanirbharbharat.com.models.PersonalInformationModel;
 import www.atmanirbharbharat.com.models.User;
 import www.atmanirbharbharat.com.util.ApiClient;
-import www.atmanirbharbharat.com.util.NetworkInfo;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class BasicDetailsFragment extends Fragment implements View.OnClickListener {
 
@@ -251,7 +246,6 @@ public class BasicDetailsFragment extends Fragment implements View.OnClickListen
         namInBankAcctEditText = viewGroup.findViewById(R.id.namInBankAcctEditText);
         ifscCodeEditText = viewGroup.findViewById(R.id.ifscCodeEditText);
 
-
         sharedPreferences = requireActivity().getSharedPreferences(SharedPref.SHARED_PREFS, MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -403,10 +397,12 @@ public class BasicDetailsFragment extends Fragment implements View.OnClickListen
 
         getData();
 
-      /*  if (email.length() <= 0) {
-            Toast.makeText(getActivity(), "Email cannot be empty", Toast.LENGTH_SHORT).show();
+        if (!email.equals("") && !validateEmail(email)) {
+            Toast.makeText(getActivity(), "Email is Invalid", Toast.LENGTH_SHORT).show();
             nextButton.setEnabled(true);
-        } else*/ if (firstName.length() <= 0) {
+        }
+        else
+        if (firstName.length() <= 0) {
             Toast.makeText(getActivity(), "First Name cannot be empty", Toast.LENGTH_SHORT).show();
             nextButton.setEnabled(true);
         } else if (lastName.length() <= 0) {
@@ -459,7 +455,8 @@ public class BasicDetailsFragment extends Fragment implements View.OnClickListen
         }*/
         else {
          //   personalInformationUpdateApiHit();
-            InsetDataInMOdel();
+
+                  InsetDataInMOdel();
         }
     }
 

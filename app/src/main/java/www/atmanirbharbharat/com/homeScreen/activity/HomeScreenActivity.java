@@ -14,22 +14,18 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import www.atmanirbharbharat.com.R;
-import www.atmanirbharbharat.com.homeScreen.fragments.AppliedLoanHomeScreenFragment;
-import www.atmanirbharbharat.com.homeScreen.fragments.DiscoverHomeScreenFragment;
+import www.atmanirbharbharat.com.homeScreen.fragments.Loan_Status_Fragment;
+import www.atmanirbharbharat.com.homeScreen.fragments.LoanPayments_Fragment;
 import www.atmanirbharbharat.com.homeScreen.fragments.MainHomeScreenFragment;
-import www.atmanirbharbharat.com.homeScreen.fragments.MeHomeScreenFragment;
-import www.atmanirbharbharat.com.homeScreen.fragments.MyAppliedLoans_Fragment;
+import www.atmanirbharbharat.com.homeScreen.fragments.MyProfileFragment;
 
 public class HomeScreenActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 
-    private MainHomeScreenFragment mainHomeScreenFragment = new MainHomeScreenFragment();
-    private AppliedLoanHomeScreenFragment authentificationHomeScreenFragment = new AppliedLoanHomeScreenFragment();
-    private DiscoverHomeScreenFragment discoverHomeScreenFragment = new DiscoverHomeScreenFragment();
-    private MeHomeScreenFragment meHomeScreenFragment = new MeHomeScreenFragment();
-  //  private MyAppliedLoans_Fragment myAppliedLoans_Fragment = new MyAppliedLoans_Fragment();
-
-//    SwipeRefreshLayout swiperefresh;
+    private final MainHomeScreenFragment mainHomeScreenFragment = new MainHomeScreenFragment();
+    private final Loan_Status_Fragment authentificationHomeScreenFragment = new Loan_Status_Fragment();
+    private final LoanPayments_Fragment discoverHomeScreenFragment = new LoanPayments_Fragment();
+    private final MyProfileFragment meHomeScreenFragment = new MyProfileFragment();
 
     private Fragment activeFragment = null;
     private FragmentManager manager;
@@ -50,13 +46,13 @@ public class HomeScreenActivity extends AppCompatActivity implements BottomNavig
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i("arp","onresume=========");
+      //  Log.i("arp","onresume=========");
 
-        if(Isprofileupdate){
+        /*if(Isprofileupdate){
             setUpBottomNavigation();
             addAllFragmentOnce();
             Isprofileupdate = false;
-        }
+        }*/
 
     }
 

@@ -1,6 +1,7 @@
 package www.atmanirbharbharat.com;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static www.atmanirbharbharat.com.util.AppConstant.hideLoading;
+import static www.atmanirbharbharat.com.util.AppConstant.showLoading;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,8 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
+
 import org.jetbrains.annotations.NotNull;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,9 +31,6 @@ import www.atmanirbharbharat.com.models.ApplyLoanModel;
 import www.atmanirbharbharat.com.models.Res_ROI;
 import www.atmanirbharbharat.com.util.ApiClient;
 import www.atmanirbharbharat.com.util.NetworkInfo;
-
-import static www.atmanirbharbharat.com.util.AppConstant.hideLoading;
-import static www.atmanirbharbharat.com.util.AppConstant.showLoading;
 
 public class ManualLoadDetail_Activity extends AppCompatActivity {
 
@@ -57,6 +60,8 @@ public class ManualLoadDetail_Activity extends AppCompatActivity {
         duration = getIntent().getStringExtra("duration");
         PayMode = getIntent().getStringExtra("paymode");
         Lic_claim = getIntent().getStringExtra("licclaim");
+
+        Log.i("arp","loanintent=== "+Principleamnt+duration+PayMode+Lic_claim);
 
   /*      rate_of_interest = getIntent().getDoubleExtra("roi",0.0);
         process_fee_percent = getIntent().getDoubleExtra("pfp",0.0);

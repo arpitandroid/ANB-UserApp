@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backgroundstyle"
     android:fillViewport="true"
-    tools:context=".homeScreen.fragments.AppliedLoanHomeScreenFragment">
+    tools:context=".homeScreen.fragments.Loan_Status_Fragment">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
