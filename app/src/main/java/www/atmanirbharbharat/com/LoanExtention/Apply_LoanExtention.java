@@ -85,9 +85,10 @@ public class Apply_LoanExtention extends AppCompatActivity {
                 if(AmtEditText.getText().toString().trim().length()==0 ){
                     Toast.makeText(Apply_LoanExtention.this, "Please enter amount", Toast.LENGTH_SHORT).show();
 
+
                 }else if(amnt > 1000000){
                     Toast.makeText(Apply_LoanExtention.this, "Max amount 1000000", Toast.LENGTH_SHORT).show();
-
+                    AmtEditText.setError("Max amount 1000000");
                 }
 
                 else if(ET_Loanduration.getText().toString().trim().length()==0){
@@ -96,7 +97,7 @@ public class Apply_LoanExtention extends AppCompatActivity {
                 }
                 else if(duration > 2000){
                     Toast.makeText(Apply_LoanExtention.this, "Max Duration 2000(days)", Toast.LENGTH_SHORT).show();
-
+                    ET_Loanduration.setError("Max Duration 2000(days)");
                 }
 
                 else {
