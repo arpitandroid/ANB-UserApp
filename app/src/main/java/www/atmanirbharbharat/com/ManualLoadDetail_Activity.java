@@ -138,6 +138,7 @@ public class ManualLoadDetail_Activity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<ApplyLoanModel> call, Throwable t) {
+                    Log.i("arp","ApplyManualLoan= "+ t);
                     //       Toast.makeText(this, "Error ! please try again", Toast.LENGTH_SHORT).show();
                     Toast.makeText(ManualLoadDetail_Activity.this, t.getMessage(), Toast.LENGTH_LONG).show();
                     hideLoading();
@@ -178,6 +179,7 @@ public class ManualLoadDetail_Activity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(@NotNull Call<Res_ROI> call, @NotNull Throwable t) {
+                    Log.i("arp","Res_ROI= "+ t);
                     Toast.makeText(ManualLoadDetail_Activity.this, ""+t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
